@@ -1,0 +1,14 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    background-image: linear-gradient(#054985, #000000);
+    align-items: center;
+    font-family: 'Merriweather', serif;
+}
+
+#logo{
+    padding: 15px; 
+    border-radius: 50%;
+    width: 11%;
+    height: auto;
+}
