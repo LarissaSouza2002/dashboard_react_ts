@@ -1,24 +1,22 @@
 import React from "react";
 import { BrowserRouter , Routes, Route } from "react-router-dom";
-import Layout from "./components/Layout";
-import Home from "./Pages/Home";
-import CadastrarInformacoes from "./Pages/Curriculun/Cadastrarinformacoes";
+import Login from "./Pages/Login";
+import AuthRoutes from "./routes/AuthRoutes";
+import { AuthProvider } from "./components/Contexts/AuthContext";
+
+
 
 const App: React.FC = () => {
   return (
+    <AuthProvider>
     <BrowserRouter>
-      <Layout>
       <Routes>
-      <Route path="/" element={<Home />} />
-        <Route path="/curriculo/informacoes/cadastro" element={<CadastrarInformacoes />} />
-        {/* <Route path="/curriculo/cadastro/experiencia-academica" element={<CadastroExperienciaAcadêmica />} />
-        <Route path="/curriculo/cadastro/experiencia-profissional" element={<CadastroExperienciaProfissional />} />
-        <Route path="/portfolio/cadastro" element={<CadastroPortfolio/>} />
-      <Route path="/portfolio/listagem" element={<ListaPortfolio/>} /> */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/*" element={<AuthRoutes/>} />
       </Routes>
-      </Layout>
     </BrowserRouter>
-  );
+    </AuthProvider>
+  )
 };
 
 export default App;

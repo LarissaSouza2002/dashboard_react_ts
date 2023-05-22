@@ -1,0 +1,45 @@
+{
+  "usuario":[
+    {
+      "id": 1,
+      "email": "Teste1@gmail.com",
+      "password": "987654@"
+    }
+  ],
+
+  "informacoes": [
+    {
+      "id": 1,
+      "foto": "",
+      "nome": "",
+      "cargo": "",
+      "resumo": ""
+    }
+  ],
+  "experiencias": [
+    {
+      "id": 1,
+      "titulo": "Desenvolvedora",
+      "descricao": "iuiu",
+      "tipo": "profissional",
+      "anoInicio": "2023",
+      "anoFim": "2025"
+    },
+    {
+      "id": 2,
+      "titulo": "Mestrado em Medicina",
+      "descricao": "",
+      "tipo": "academico",
+      "anoInicio": "2018",
+      "anoFim": "2020"
+    }
+  ],
+  "portfolio": [
+    {
+      "id": 1,
+      "link": "https://github.com/",
+      "image": "https://github.com/LarissaSouza2002.png",
+      "descricao": "aluno"
+    }
+  ]
+}

@@ -1,8 +1,11 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 import styles from './Sidebar.module.css';
+import { useAuth } from '../../Contexts/AuthContext';
 
 const Sidebar: React.FC =() => {
+    const {logout} = useAuth();
+    
     return (
         <div className={styles.sidebar}>
             <nav className={styles.navigation}>
@@ -27,7 +30,7 @@ const Sidebar: React.FC =() => {
                     </NavLink>
                     </li>
                     <li>
-                    <NavLink to= "/curriculo/experiencia/listagem">
+                    <NavLink to= "/curriculo/experiencia/listar">
                         Listar Experiências
                     </NavLink>
                     </li>
@@ -42,7 +45,15 @@ const Sidebar: React.FC =() => {
                     </li>
                     <li>
                         <NavLink to= "/portfolio/listagem">
-                            Listagem de Portfólio
+                            Listar Portfólio
+                        </NavLink>
+                    </li>
+                </ul>
+
+                <ul>
+                    <li>
+                        <NavLink onClick={logout} to= "/login">
+                            <h3>Logout</h3>
                         </NavLink>
                     </li>
                 </ul>

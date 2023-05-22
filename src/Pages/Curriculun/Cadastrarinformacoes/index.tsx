@@ -1,1 +1,1 @@
-export {default} from './Cadastrarinformacoes';
+export { default } from './CadastrarInformacoes';

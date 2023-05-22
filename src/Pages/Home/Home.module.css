@@ -1,0 +1,9 @@
+.mainTitle{
+    display: flex;
+    justify-content: center;
+}
+
+.paragraph{
+    display: flex;
+    justify-content: center;
+}
