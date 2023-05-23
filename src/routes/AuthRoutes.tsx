@@ -30,7 +30,7 @@ const AuthRoutes: React.FC = () => {
             <Route path="/curriculo/experiencia/listar" element={<ListarExperiencia/>} />
             <Route path="/portfolio/cadastro" element={<CadastroPortfolio/>} />
             <Route path="/portfolio/listagem" element={<ListarPortfolio/>} />
-            </Routes>
+        </Routes>
     </Layout>
     )
 }

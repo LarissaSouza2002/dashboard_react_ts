@@ -5,9 +5,11 @@ import { Formik, Form} from "formik";
 import Input from "../../../components/Forms/Input/Input";
 import Textarea from "../../../components/Forms/Textarea/Textarea";
 import { Informacoes, updateInformacoes, getInformacoes} from "../../../Services/informacoesService";
+import Button from "../../../components/Common/Button/Button";
 
 const CadastrarInformacoes: React.FC = () => {
   const [informacoes, setInformacoes] = useState<Informacoes>({} as Informacoes);
+
   /*Definindo Valores*/
   const initialValues: Informacoes = {
     id: 1,
@@ -96,9 +98,7 @@ const CadastrarInformacoes: React.FC = () => {
               touched={touched.resumo}
             />
 
-            <button type="submit" className={styles.button}>
-              Salvar
-            </button>
+            <Button>Salvar</Button>
           </Form>
         )}
       </Formik>

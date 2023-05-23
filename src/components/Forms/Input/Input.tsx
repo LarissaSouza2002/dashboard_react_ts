@@ -10,7 +10,7 @@ interface InputProps{
     touched?: boolean;
 }
 
-const Input: React.FC<InputProps> = ({ label, name, type = 'text', errors, touched }) =>{
+const Input: React.FC<InputProps> = ({ label, name, type = "text", errors, touched }) =>{
     return(
         <fieldset className={styles.formGroup}>
             <label htmlFor={name} className={styles.label}> {label} </label>

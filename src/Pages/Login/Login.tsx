@@ -1,12 +1,14 @@
 import React from "react";
 import styles from './Login.module.css'
 import * as Yup from 'Yup'
-import { Formik, Form } from "formik";
-import Input from "../../components/Forms/Input/Input";
-import { useNavigate } from "react-router-dom";
+// import { Form } from "formik";
+import {Form, useNavigate } from "react-router-dom";
 import { login as loginService} from "../../Services/authService";
 import { useAuth } from "../../components/Contexts/AuthContext";
-
+import Input from "../../components/Forms/Input";
+import Button from "../../components/Common/Button";
+import Title from "../../components/Common/Title";
+import { Formik } from "formik";
 
 interface LoginValues {
     email: string;
@@ -44,21 +46,22 @@ const Login: React.FC = () => {
             alert("Erro ao realizar login.")
             
         }
-    }
+    };
+
     return (
         <div className={styles.loginWrapper}>
-            <div className={styles.formWrapper}>
-                <Formik
+            <Formik
                 initialValues={initialValues}
                 validationSchema={validationSchema}
                 onSubmit={onSubmit}
-                >
+            >
 
-                    {({errors, touched}) => (
-                        <Form className={styles.form}>
-                            <h1 className={styles.title}> Meu Site Pessoal</h1>
+                {({errors, touched}) => (
+                    <Form className={styles.form}>
 
-                            <Input
+                    <Title>Meu Site Pessoal</Title>
+
+                    <Input
                             label="Email"
                             name="email"
                             type="email"
@@ -66,7 +69,7 @@ const Login: React.FC = () => {
                             touched={touched.email}
                             />
 
-                            <Input
+                        <Input
                             label="Password"
                             name="password"
                             type="password"
@@ -74,12 +77,12 @@ const Login: React.FC = () => {
                             touched={touched.password}
                             />
 
-                            <button type="submit" className={styles.button}></button>
-                        </Form>
+                    <Button type="submit">Login</Button>
+                    </Form>
+                    
                     )}
-                </Formik>
-            </div>
-        </div>
+            </Formik>
+</div>
     );
 };
 
