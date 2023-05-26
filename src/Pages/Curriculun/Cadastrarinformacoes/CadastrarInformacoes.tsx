@@ -8,8 +8,7 @@ import { Informacoes, updateInformacoes, getInformacoes} from "../../../Services
 import Button from "../../../components/Common/Button/Button";
 
 const CadastrarInformacoes: React.FC = () => {
-  const [informacoes, setInformacoes] = useState<Informacoes>({} as Informacoes);
-
+  
   /*Definindo Valores*/
   const initialValues: Informacoes = {
     id: 1,
@@ -18,6 +17,8 @@ const CadastrarInformacoes: React.FC = () => {
     cargo: '',
     resumo: '',
   };
+  
+  const [informacoes, setInformacoes] = useState<Informacoes>(initialValues as Informacoes);
 
   const validationSchema = Yup.object().shape({
     foto: Yup.string().required('Campo Obrigatório'),
@@ -49,6 +50,7 @@ const CadastrarInformacoes: React.FC = () => {
     try {
       await updateInformacoes(values);
       setInformacoes(values);
+      resetForm();
       console.log(values);
       alert('Informações enviadas com sucesso!');
 
