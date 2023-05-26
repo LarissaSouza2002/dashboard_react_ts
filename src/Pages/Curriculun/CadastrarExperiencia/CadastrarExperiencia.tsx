@@ -1,13 +1,15 @@
 import React from "react";
 import styles from "./CadastrarExperiencia.module.css";
-import * as Yup from "Yup";
+import * as Yup from "yup";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Formik, Form } from "formik";
 import Input from "../../../components/Forms/Input/Input";
 import Textarea from "../../../components/Forms/Textarea/Textarea";
 import Select from "../../../components/Forms/Select/Select";
-import { Experiencia, createOrUpdateExperiencia } from "../../../Services/experienciaService";
-
+import {
+  Experiencia,
+  createOrUpdateExperiencia,
+} from "../../../Services/experienciaService";
 
 const CadastrarExperiencia: React.FC = () => {
   const navigate = useNavigate();
@@ -27,17 +29,22 @@ const CadastrarExperiencia: React.FC = () => {
     titulo: Yup.string().required("Campo Obrigatório"),
     descricao: Yup.string(),
     tipo: Yup.string().required("Campo Obrigatório"),
-    anoInicio: Yup.number().required("Campo Obrigatório").typeError("Número Obrigatório"),
+    anoInicio: Yup.number()
+      .required("Campo Obrigatório")
+      .typeError("Número Obrigatório"),
     anoFim: Yup.string().required("Campo Obrigatório"),
   });
 
-  const onSubmit = async (values: Experiencia,{ resetForm }: { resetForm: () => void }) => {
+  const onSubmit = async (
+    values: Experiencia,
+    { resetForm }: { resetForm: () => void }
+  ) => {
     try {
       await createOrUpdateExperiencia(values);
       console.log(values);
       resetForm();
-      navigate("/curriculo/experiencia/listar")
-      alert("Formulário enviado com sucesso!")
+      navigate("/curriculo/experiencia/listar");
+      alert("Formulário enviado com sucesso!");
     } catch (error) {
       console.log(error);
       alert("Ocorreu um erro ao enviar o formulário. Tente de novo!");
@@ -82,17 +89,19 @@ const CadastrarExperiencia: React.FC = () => {
             />
 
             <Select
-            label= "Tipo de Experiencia"
-            name= "tipo"
-            options= {[
-              {value: "profissional", label: "Profissional"},
-              {value: "academico", label: "Acadêmico"},
-            ]}
-            errors={errors.tipo}
-            touched={touched.tipo}
+              label="Tipo de Experiencia"
+              name="tipo"
+              options={[
+                { value: "profissional", label: "Profissional" },
+                { value: "academico", label: "Acadêmico" },
+              ]}
+              errors={errors.tipo}
+              touched={touched.tipo}
             />
 
-            <button type="submit" className={styles.button}>Salvar</button>
+            <button type="submit" className={styles.button}>
+              Salvar
+            </button>
           </Form>
         )}
       </Formik>
