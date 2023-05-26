@@ -9,16 +9,16 @@
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "serve": "json-server --watch src/database/db.json --port 5000"
-
   },
   "dependencies": {
+    "@types/yup": "^0.32.0",
     "await": "^0.2.6",
     "axios": "^1.4.0",
     "formik": "^2.2.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.11.1",
-    "yup": "^1.1.1"
+    "yup": "^1.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
