@@ -1,7 +1,7 @@
 //estado global
 
 import React, { ReactNode, createContext, useContext, useEffect, useState } from "react";
-import { User } from "../../Services/userService";
+import { User } from "../../Services/authService";
 
 
 interface AuthContextProps {
@@ -16,7 +16,7 @@ const AuthContext = createContext<AuthContextProps>({} as AuthContextProps);
 
 export const useAuth = () => useContext(AuthContext);
 
-export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+export const AuthProvider: React.FC < ({ children: ReactNode }) > = ({ children }) => {
     const [authenticated, setAuthenticated] = useState(false);
     const [user, setUser] = useState({} as User);
     const [isLoading, setIsLoading] = useState(true);
